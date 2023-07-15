@@ -1,0 +1,12 @@
+ {
+	"BrokerHost":  "localhost",
+	"BrokerTopic": "topic/foo",
+	"BrokerPort":  1883,
+	"DBHost":      "localhost",
+	"DBName":      "dbname",
+	"DBUser":      "username",
+	"DBPwd":       "password",
+	"DBPort":      5432,
+	"DBSSL":       "disable",
+	"DBTmz":       "America/Los_Angeles"
+}
