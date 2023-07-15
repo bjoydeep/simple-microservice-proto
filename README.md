@@ -11,7 +11,7 @@ This is a simple microservice that -
     ```
 - persists the payload in a DB (private to this microservice)
 - also sends the payload to a topic in the Broker `for other services to make use of it`. Those services are not created here.
-- It will listen to some other topic to update the status of its models - `this code will be added`
+- It will listen to some other topic to update the status of its resource - `this code will be added`
 - There is a sample topic consumer in the code - just for purposes of testing
 
 ## Tips to run locally
