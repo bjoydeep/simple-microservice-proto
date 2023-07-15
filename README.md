@@ -25,9 +25,18 @@ This is a simple microservice that -
 1. Then run: `go run cmd/main.go`
 
 ## To test the installation
-1. Curl POST create user: `curl -X POST 'http://localhost:8080/users' --header 'Content-Type: text/plain' --data-raw '{"id":"1", "name":"anim", "email":"anim@gm"}'`
-1. Curl GET all users: `curl  'http://localhost:8080/users'`
-1. Curl GET a user with id=1: `curl  'http://localhost:8080/user/1'`
+1. Curl POST create user: 
+    ```
+    curl -X POST 'http://localhost:8080/users' --header 'Content-Type: text/plain' --data-raw '{"id":"1", "name":"anim", "email":"anim@gm"}'
+    ```
+1. Curl GET all users: 
+    ```
+    curl  'http://localhost:8080/users'
+    ```
+1. Curl GET a user with id=1: 
+    ```
+    curl  'http://localhost:8080/user/1'
+    ```
 
 
 ### TODO
