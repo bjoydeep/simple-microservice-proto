@@ -1,3 +1,11 @@
+## Scope
+This is a simple microservice that -
+- accepts a REST payload
+- persists the payload in a DB (private to this microservice)
+- also sends the payload to a topic in the Broker `for other services to make use of it`. Those services are not created here.
+- It will listen to some other topic to update the status of its models - `this code will be added`
+- There is a sample topic consumer in the code - just for purposes of testing
+
 ## Tips to run locally
 
 
@@ -7,17 +15,21 @@
 1. Then clone this git repo
 1. Copy config.json.sample to config.json and add the values for MQTT and DB so that program can access both
 1. Then run: `go run cmd/main.go`
+
+## To test the installation
 1. Curl POST create user: `curl -X POST 'http://localhost:8080/users' --header 'Content-Type: text/plain' --data-raw '{"id":"1", "name":"anim", "email":"anim@gm"}'`
 1. Curl GET all users: `curl  'http://localhost:8080/users'`
-1. Curl GET a users: `curl  'http://localhost:8080/user/1'`
+1. Curl GET a user with id=1: `curl  'http://localhost:8080/user/1'`
 
 
 ### TODO
 - error handling for GORM
 - GORM to use conection pool
+- thread safety
 - making sure all resources are being closed
 - Need to create interfaces etc if we want to abstract Broker Type
 - API Versioning missing
+- and lots of other things
 
 
 
