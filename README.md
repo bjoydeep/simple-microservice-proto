@@ -1,6 +1,14 @@
 ## Scope
 This is a simple microservice that -
 - accepts a REST payload
+- the resource modeled here is simple :
+    ```
+    type User struct {
+        ID    string `json:"id"`
+        Name  string `json:"name"`
+        Email string `json:"email"`
+    }
+    ```
 - persists the payload in a DB (private to this microservice)
 - also sends the payload to a topic in the Broker `for other services to make use of it`. Those services are not created here.
 - It will listen to some other topic to update the status of its models - `this code will be added`
