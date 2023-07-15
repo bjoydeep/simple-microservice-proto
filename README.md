@@ -11,7 +11,7 @@ This is a simple microservice that -
 
 1. To install mosquitto locally: `brew install mosquitto`
 1. To start mosqitto locally: `/usr/local/sbin/mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf`
-1. Expecting a postgres db created (tables will be created dynamically) and available
+1. Expecting a postgres db to be available (tables will be created dynamically)
 1. Then clone this git repo
 1. Copy config.json.sample to config.json and add the values for MQTT and DB so that program can access both
 1. Then run: `go run cmd/main.go`
