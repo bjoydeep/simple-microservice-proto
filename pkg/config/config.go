@@ -9,24 +9,25 @@ import (
 )
 
 type Config struct {
-	BrokerHost  string
-	BrokerTopic string
-	BrokerPort  int
-	DBHost      string
-	DBName      string
-	DBUser      string
-	DBPwd       string
-	DBPort      int
-	DBSSL       string
-	DBTmz       string
+	BrokerHost     string
+	BrokerPubTopic string
+	BrokerSubTopic string
+	BrokerPort     int
+	DBHost         string
+	DBName         string
+	DBUser         string
+	DBPwd          string
+	DBPort         int
+	DBSSL          string
+	DBTmz          string
 }
 
 var Cfg = Config{}
 var FilePath = flag.String("c", "./config.json", "config file path")
 
-func init() {
-	InitConfig()
-}
+// func init() {
+// 	InitConfig()
+// }
 
 func InitConfig() error {
 

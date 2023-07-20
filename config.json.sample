@@ -1,6 +1,7 @@
  {
 	"BrokerHost":  "localhost",
-	"BrokerTopic": "topic/foo",
+	"BrokerPubTopic": "topic/foo",
+	"BrokerSubTopic": "topic/bar",
 	"BrokerPort":  1883,
 	"DBHost":      "localhost",
 	"DBName":      "dbname",

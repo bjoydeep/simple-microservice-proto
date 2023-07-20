@@ -7,12 +7,14 @@ This is a simple microservice that -
         ID    string `json:"id"`
         Name  string `json:"name"`
         Email string `json:"email"`
+		Status string `json:"status"`
+
     }
     ```
 - persists the payload in a DB (private to this microservice)
 - also sends the payload to a topic in the Broker `for other services to make use of it`. Those services are not created here.
-- It will listen to some other topic to update the status of its resource - `this code will be added`
-- There is a sample topic consumer in the code - just for purposes of testing
+- It will listen to some other topic to update the status of its resource - `this code will not get exercised` unless you run the [sibling repo.](https://github.com/bjoydeep/simple-microservice-b-proto)
+- Then the topic consumer will be exercised and update the resource. The curl POST example below updates ID, Name and Email field only. Status is blank. When you run the [sibling repo.](https://github.com/bjoydeep/simple-microservice-b-proto), that microservice will update the resource model and publish to the topic which will be fed back by this microservice and status field be updated.
 
 ## Tips to run locally
 

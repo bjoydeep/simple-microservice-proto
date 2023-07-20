@@ -18,7 +18,8 @@ func loadConfig() {
 		println("Configuration Details are : ")
 		println("-------------------------------------")
 		println("BrokerHost is: ", config.Cfg.BrokerHost)
-		println("Topic is: ", config.Cfg.BrokerTopic)
+		println("Publish Topic is: ", config.Cfg.BrokerPubTopic)
+		println("Subscribe Topic is: ", config.Cfg.BrokerSubTopic)
 		println("Broker Port is: ", config.Cfg.BrokerPort)
 
 		println("Database host is: ", config.Cfg.DBHost)
@@ -44,7 +45,9 @@ func main() {
 	//Sets up gorm
 	model.SetupModel()
 
-	go transport.Subscribe(transport.BrokerClient, config.Cfg.BrokerTopic)
+	//this is watching the message channel and processing the messages which updates the model
+	go transport.Subscribe(transport.BrokerClient, config.Cfg.BrokerSubTopic, transport.MessageChan)
+	go transport.ProcessMessages(transport.BrokerClient, transport.MessageChan)
 
 	// Define API endpoints - to add versioning
 	router.GET("/users", handler.GetUsers)

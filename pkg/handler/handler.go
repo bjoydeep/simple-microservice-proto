@@ -64,7 +64,7 @@ func AddUser(ctx *gin.Context) {
 
 			client := transport.BrokerClient
 			println("Trying to publish -----")
-			transport.Publish(client, jsonBytes, config.Cfg.BrokerTopic)
+			transport.Publish(client, jsonBytes, config.Cfg.BrokerPubTopic)
 			println("Published --- ")
 		}
 

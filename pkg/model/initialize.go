@@ -8,9 +8,10 @@ import (
 )
 
 type User struct {
-	ID    string `json:"id"`
-	Name  string `json:"name"`
-	Email string `json:"email"`
+	ID     string `json:"id"`
+	Name   string `json:"name"`
+	Email  string `json:"email"`
+	Status string `json:"status"`
 }
 
 //redundant - but may be needed to do memory manipulation later?
@@ -28,6 +29,13 @@ func AddUser(user User) User {
 }
 */
 
+func UpdateUser(user User) {
+	fmt.Println(user)
+	if result := storage.DB_.Save(&user); result.Error != nil {
+		println("Unable to update the User: ", result.Error)
+	}
+}
+
 func SetupModel() {
 	println("Setting up GORM")
 	err := storage.DB_.AutoMigrate(&User{})
@@ -36,7 +44,8 @@ func SetupModel() {
 	}
 }
 
+// works with fmt.Println(user)
 func (user User) String() string {
 	//return println("User: ",user.ID, " Name: ", user.Name, " Email: ",user.Email)
-	return fmt.Sprintf("User: %s Name: %s Email: %s", user.ID, user.Name, user.Email)
+	return fmt.Sprintf("User: %s Name: %s Email: %s Status: %s", user.ID, user.Name, user.Email, user.Status)
 }
