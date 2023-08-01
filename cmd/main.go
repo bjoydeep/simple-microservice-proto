@@ -46,8 +46,8 @@ func main() {
 	model.SetupModel()
 
 	//this is watching the message channel and processing the messages which updates the model
-	go transport.Subscribe(transport.BrokerClient, config.Cfg.BrokerSubTopic, transport.MessageChan)
-	go transport.ProcessMessages(transport.BrokerClient, transport.MessageChan)
+	transport.Subscribe(transport.BrokerClient, config.Cfg.BrokerSubTopic, transport.MessageChan)
+	//go transport.ProcessMessages(transport.BrokerClient, transport.MessageChan)
 
 	// Define API endpoints - to add versioning
 	router.GET("/users", handler.GetUsers)
